@@ -1,0 +1,43 @@
+notes
+
+main.py
+    execute from here
+
+apireturn.py
+    useapi(scc, credential, start, stop)
+        scc = SCC# of vehicle
+        credential = (username, password)
+        start = 'yyyy-mm-dd'
+        stop = 'yyyy-mm-dd'
+        gets TLEs from Spacetrack.org
+        output: .txt file that can be used by convertTLE.py
+
+forensics_grapher.py
+    convertTLE(filename)
+        filename =  the file that came out of the apireturn
+            contains TLEs to ingest
+        return sat_dic
+            contains satellite info for twobody
+    graph_satdic(sat_dic)
+        sat_dic = output of convertTLE
+        uses twobody to make RSS of inputted TLEs
+        output: plot
+
+rss.py
+    twobody2(sat1, sat2)
+    sat1/2 = R: [sat1[1], sat1[2], sat1[3]] V: [sat1[4], sat1[5], sat1[6]]
+    uses SGP4 to propogate
+
+
+
+SpaceTrackApi:
+    file used to pull spacetrack.org files
+
+
+
+sgp4 files:
+earthgravity
+ext
+inout
+model
+propagation
